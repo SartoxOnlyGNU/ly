@@ -4,9 +4,6 @@
 [submodule "sub/configator"]
 	path = sub/configator
 	url = https://git.nullgemm.fr/nullgemm/configator.git
-[submodule "sub/ctypes"]
-	path = sub/ctypes
-	url = https://git.nullgemm.fr/nullgemm/ctypes.git
 [submodule "sub/dragonfail"]
 	path = sub/dragonfail
 	url = https://git.nullgemm.fr/nullgemm/dragonfail.git
