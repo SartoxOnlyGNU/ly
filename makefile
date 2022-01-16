@@ -24,7 +24,6 @@ DATADIR ?= ${DESTDIR}/etc/ly
 FLAGS+= -DDATADIR=\"$(DATADIR)\"
 
 INCL = -I$(SRCD)
-INCL+= -I$(SUBD)/ctypes
 INCL+= -I$(SUBD)/argoat/src
 INCL+= -I$(SUBD)/configator/src
 INCL+= -I$(SUBD)/dragonfail/src
@@ -105,23 +104,3 @@ clean:
 	@rm -rf $(BIND) $(OBJD) valgrind.log
 	@(cd $(SUBD)/termbox_next && $(MAKE) clean)
 
-remotes:
-	@echo "registering remotes"
-	@git remote add github git@github.com:nullgemm/$(NAME).git
-	@git remote add gitea ssh://git@git.nullgem.fr:2999/nullgemm/$(NAME).git
-
-github:
-	@echo "sourcing submodules from https://github.com"
-	@cp .github .gitmodules
-	@git submodule sync
-	@git submodule update --init --remote
-	@cd $(SUBD)/argoat && make github
-	@git submodule update --init --recursive --remote
-
-gitea:
-	@echo "sourcing submodules from personal server"
-	@cp .gitea .gitmodules
-	@git submodule sync
-	@git submodule update --init --remote
-	@cd $(SUBD)/argoat && make gitea
-	@git submodule update --init --recursive --remote

@@ -58,17 +58,12 @@ changing the source code won't be necessary :)
 ## Cloning and Compiling
 Clone the repository
 ```
-git clone https://github.com/SartoxOnlyGNU/ly-reloaded
+git clone --recurse-submodules https://github.com/SartoxSoftware/ly-reloaded
 ```
 
 Go to its directory
 ```
 cd ly-reloaded
-```
-
-Fetch submodules
-```
-make github
 ```
 
 Compile
