@@ -276,13 +276,13 @@ void draw_labels(struct term_buf* buf) // throws
 void draw_time(struct term_buf *buf)
 {
 	time_t timer;
-    char time_buf[27] = { 0 };
-    struct tm* tm_info;
+	char time_buf[27] = { 0 };
+	struct tm* tm_info;
 
-    timer = time(NULL);
-    tm_info = localtime(&timer);
+	timer = time(NULL);
+	tm_info = localtime(&timer);
 
-    strftime(time_buf, 26, "%d/%m/%Y %r", tm_info);
+	strftime(time_buf, 26, "%d/%m/%Y %r", tm_info);
 
 	struct tb_cell *time_cell = str_cell(time_buf);
 	if(dgn_catch())
