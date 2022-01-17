@@ -73,6 +73,7 @@ struct config
 	uint8_t fg;
 	bool hide_borders;
     bool hide_f1_commands;
+    bool hide_time;
 	uint8_t input_len;
 	char* lang;
 	bool load;
