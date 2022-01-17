@@ -183,6 +183,7 @@ int main(int argc, char** argv)
 				draw_labels(&buf);
 				if (!config.hide_f1_commands)
                     draw_f_commands();
+                draw_time(&buf);
 				draw_lock_state(&buf);
 				position_input(&buf, &desktop, &login, &password);
 				draw_desktop(&desktop);

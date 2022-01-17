@@ -15,6 +15,7 @@
 #include <sys/ioctl.h>
 #include <sys/stat.h>
 #include <unistd.h>
+#include <time.h>
 
 #if defined(__DragonFly__) || defined(__FreeBSD__)
 	#include <sys/kbio.h>
@@ -269,6 +270,29 @@ void draw_labels(struct term_buf* buf) // throws
 				info_cell);
 			free(info_cell);
 		}
+	}
+}
+
+void draw_time(struct term_buf *buf)
+{
+	time_t timer;
+    char time_buf[27] = { 0 };
+    struct tm* tm_info;
+
+    timer = time(NULL);
+    tm_info = localtime(&timer);
+
+    strftime(time_buf, 26, "%d/%m/%Y %r", tm_info);
+
+	struct tb_cell *time_cell = str_cell(time_buf);
+	if(dgn_catch())
+	{
+		dgn_reset();
+	}
+	else
+	{
+		tb_blit(buf->width / 2 - strlen(time_buf) / 2 + 1, 0, strlen(time_buf), 1, time_cell);
+		free(time_cell);
 	}
 }
 
