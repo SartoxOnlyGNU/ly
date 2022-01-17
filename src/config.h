@@ -91,6 +91,7 @@ struct config
 	char* service_name;
 	char* shutdown_cmd;
 	char* term_reset_cmd;
+	char* time_format;
 	uint8_t tty;
 	char* wayland_cmd;
 	bool wayland_specifier;

@@ -282,7 +282,7 @@ void draw_time(struct term_buf *buf)
 	timer = time(NULL);
 	tm_info = localtime(&timer);
 
-	strftime(time_buf, 26, "%d/%m/%Y %r", tm_info);
+	strftime(time_buf, 26, config.time_format, tm_info);
 
 	struct tb_cell *time_cell = str_cell(time_buf);
 	if(dgn_catch())

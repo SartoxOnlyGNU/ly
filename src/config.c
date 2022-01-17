@@ -188,6 +188,7 @@ void config_load(const char *cfg_path)
 		{"service_name", &config.service_name, config_handle_str},
 		{"shutdown_cmd", &config.shutdown_cmd, config_handle_str},
 		{"term_reset_cmd", &config.term_reset_cmd, config_handle_str},
+		{"time_format", &config.time_format, config_handle_str},
 		{"tty", &config.tty, config_handle_u8},
 		{"wayland_cmd", &config.wayland_cmd, config_handle_str},
 		{"wayland_specifier", &config.wayland_specifier, config_handle_bool},
@@ -297,6 +298,7 @@ void config_defaults()
 	config.service_name = strdup("ly");
 	config.shutdown_cmd = strdup("/sbin/shutdown -a now");
 	config.term_reset_cmd = strdup("/usr/bin/tput reset");
+	config.time_format = strdup("%m/%d/%Y %I:%M %p");
 	config.tty = 2;
 	config.wayland_cmd = strdup(DATADIR "/wsetup.sh");
 	config.wayland_specifier = false;
@@ -367,6 +369,7 @@ void config_free()
 	free(config.service_name);
 	free(config.shutdown_cmd);
 	free(config.term_reset_cmd);
+	free(config.time_format);
 	free(config.wayland_cmd);
 	free(config.waylandsessions);
 	free(config.x_cmd);
