@@ -73,6 +73,7 @@ struct config
 	uint8_t fg;
 	bool hide_borders;
     bool hide_f1_commands;
+    bool hide_time;
 	uint8_t input_len;
 	char* lang;
 	bool load;
@@ -90,6 +91,7 @@ struct config
 	char* service_name;
 	char* shutdown_cmd;
 	char* term_reset_cmd;
+	char* time_format;
 	uint8_t tty;
 	char* wayland_cmd;
 	bool wayland_specifier;

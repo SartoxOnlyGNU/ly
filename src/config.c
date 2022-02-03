@@ -161,7 +161,7 @@ void config_load(const char *cfg_path)
 		{"animate", &config.animate, config_handle_bool},
 		{"animation", &config.animation, config_handle_u8},
 		{"asterisk", &config.asterisk, config_handle_char},
-        {"asterisk_empty", &config.asterisk_empty, config_handle_bool},
+		{"asterisk_empty", &config.asterisk_empty, config_handle_bool},
 		{"bg", &config.bg, config_handle_u8},
 		{"blank_box", &config.blank_box, config_handle_bool},
 		{"blank_password", &config.blank_password, config_handle_bool},
@@ -169,7 +169,8 @@ void config_load(const char *cfg_path)
 		{"default_input", &config.default_input, config_handle_u8},
 		{"fg", &config.fg, config_handle_u8},
 		{"hide_borders", &config.hide_borders, config_handle_bool},
-        {"hide_f1_commands", &config.hide_f1_commands, config_handle_bool},
+		{"hide_f1_commands", &config.hide_f1_commands, config_handle_bool},
+		{"hide_time", &config.hide_time, config_handle_bool},
 		{"input_len", &config.input_len, config_handle_u8},
 		{"lang", &config.lang, config_handle_str},
 		{"load", &config.load, config_handle_bool},
@@ -187,6 +188,7 @@ void config_load(const char *cfg_path)
 		{"service_name", &config.service_name, config_handle_str},
 		{"shutdown_cmd", &config.shutdown_cmd, config_handle_str},
 		{"term_reset_cmd", &config.term_reset_cmd, config_handle_str},
+		{"time_format", &config.time_format, config_handle_str},
 		{"tty", &config.tty, config_handle_u8},
 		{"wayland_cmd", &config.wayland_cmd, config_handle_str},
 		{"wayland_specifier", &config.wayland_specifier, config_handle_bool},
@@ -269,7 +271,7 @@ void config_defaults()
 	config.animate = false;
 	config.animation = 0;
 	config.asterisk = '*';
-    config.asterisk_empty = false;
+	config.asterisk_empty = false;
 	config.bg = 0;
 	config.blank_box = true;
 	config.blank_password = false;
@@ -277,7 +279,8 @@ void config_defaults()
 	config.default_input = PASSWORD_INPUT;
 	config.fg = 9;
 	config.hide_borders = false;
-    config.hide_f1_commands = false;
+	config.hide_f1_commands = false;
+	config.hide_time = false;
 	config.input_len = 34;
 	config.lang = strdup("en");
 	config.load = true;
@@ -295,6 +298,7 @@ void config_defaults()
 	config.service_name = strdup("ly");
 	config.shutdown_cmd = strdup("/sbin/shutdown -a now");
 	config.term_reset_cmd = strdup("/usr/bin/tput reset");
+	config.time_format = strdup("%m/%d/%Y %I:%M %p");
 	config.tty = 2;
 	config.wayland_cmd = strdup(DATADIR "/wsetup.sh");
 	config.wayland_specifier = false;
@@ -365,6 +369,7 @@ void config_free()
 	free(config.service_name);
 	free(config.shutdown_cmd);
 	free(config.term_reset_cmd);
+	free(config.time_format);
 	free(config.wayland_cmd);
 	free(config.waylandsessions);
 	free(config.x_cmd);
