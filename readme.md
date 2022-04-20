@@ -1,6 +1,9 @@
 # Ly Reloaded - a TUI display manager
 ![Ly screenshot](https://user-images.githubusercontent.com/5473047/88958888-65efbf80-d2a1-11ea-8ae5-3f263bce9cce.png "Ly screenshot")
 
+# Merging with Ly
+That's right, Ly Reloaded is merging into Ly!
+
 Ly Reloaded is a maintained fork of Ly with bug fixes and patches. It's a lightweight TUI (ncurses-like) display manager for Linux and BSD.
 
 ## Download
